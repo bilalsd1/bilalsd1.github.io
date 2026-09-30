@@ -162,3 +162,10 @@ dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.5px;mar
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
 @media print{.nav,.hero,.footer{display:none}}
+
+.portrait{margin:0;position:relative;justify-self:center;width:min(100%,400px)}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.portrait::before{content:"";position:absolute;inset:-12px 12px 12px -12px;border:2px solid var(--acc);border-radius:10px;z-index:-1}
+.portrait figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 18px 16px;background:linear-gradient(transparent,rgba(5,9,13,.85));border-radius:0 0 10px 10px;color:#fff;display:grid}
+.portrait figcaption span{font-size:13px;opacity:.85}
+.stackfig{margin-top:26px;max-width:380px}
