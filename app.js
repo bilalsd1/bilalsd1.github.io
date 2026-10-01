@@ -67,7 +67,7 @@
   const cur = () => { const h = location.hash.replace(/^#/, '') || '/dashboard'; return h; };
   function renderNav() {
     const now = cur();
-    $('#side').innerHTML = `<div class="ng only-m"><h5>Career mode</h5><div class="mm">${Object.keys(MODES).map(k => `<button data-mode="${k}" aria-pressed="${k === mode}">${esc(MODES[k].label)}</button>`).join('')}</div></div>` + ORDER[mode].map(k => { const g = NAV[k]; return `<div class="ng"><h5>${g.t}</h5>${g.items.map(([r, l, i]) => `<a class="ni" href="#${r}" ${now === r || (now.split('?')[0] === r.split('?')[0] && !r.includes('?') && r !== '/technology') ? 'aria-current="page"' : ''}>${ic(i)}<span>${esc(l)}</span></a>`).join('')}</div>`; }).join('');
+    $('#nav').innerHTML = ORDER[mode].map(k => { const g = NAV[k]; return `<div class="ng"><h5>${g.t}</h5>${g.items.map(([r, l, i]) => `<a class="ni" href="#${r}" ${now === r || (now.split('?')[0] === r.split('?')[0] && !r.includes('?') && r !== '/technology') ? 'aria-current="page"' : ''}>${ic(i)}<span>${esc(l)}</span></a>`).join('')}</div>`; }).join('');
     $('#modes').innerHTML = Object.keys(MODES).map(k => `<button data-mode="${k}" aria-pressed="${k === mode}" title="${esc(MODES[k].blurb)}">${esc(MODES[k].label)}</button>`).join('');
     const b = [['/dashboard', 'Home', 'dashboard'], ['/experience', 'Career', 'briefcase'], ['/projects', 'Projects', 'folder']];
     $('#bottomnav').innerHTML = b.map(([r, l, i]) => `<a href="#${r}" ${now.split('?')[0] === r ? 'aria-current="page"' : ''}>${ic(i)}${l}</a>`).join('') + `<button data-act="focus-search">${ic('search')}Search</button><button data-act="menu">${ic('menu')}Menu</button>`;

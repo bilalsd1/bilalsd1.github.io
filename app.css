@@ -235,3 +235,27 @@ tr.xrow>td{padding:0;background:var(--accent-soft);border-bottom:1px solid var(-
 @media(max-width:760px){.ident{grid-template-columns:1fr;justify-items:start;gap:18px}.ident img{width:min(100%,260px);height:auto;aspect-ratio:3/4}.ident h1{font-size:32px}}
 
 .loading{padding:40px 10px;color:var(--muted);font:14px var(--mono)}
+
+/* ---- no top bar: brand, search, career mode and theme live in the sidebar ---- */
+.app{grid-template-rows:1fr}
+.side{grid-row:1;top:0;height:100vh;display:flex;flex-direction:column;padding:0;overflow:hidden}
+#view{grid-row:1;padding-top:26px}
+.side-head{padding:16px 12px 12px;border-bottom:1px solid var(--line);display:grid;gap:12px;flex:none}
+.side-head .brand{min-width:0;margin:0}
+.side-head .search{max-width:none}
+.side-head .modes{display:grid;grid-template-columns:1fr;border:0;gap:6px}
+.side-head .modes button{border:1px solid var(--line2);border-radius:3px;text-align:left;padding:8px 10px}
+.side-head .modes button[aria-pressed="true"]{border-color:var(--accent)}
+#nav{flex:1;overflow-y:auto;padding:14px 10px 20px}
+.side-foot{flex:none;padding:10px 12px;border-top:1px solid var(--line)}.side-foot .btn{width:100%}
+.gres{position:fixed;left:calc(var(--side) + 12px);top:14px;width:min(560px,calc(100vw - var(--side) - 40px));max-height:84vh}
+.menu-btn{display:none;position:fixed;top:10px;left:10px;z-index:90;width:42px;height:42px;box-shadow:var(--shadow)}
+@media(max-width:1000px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:fixed;left:0;top:0;bottom:0;width:290px;height:auto;z-index:80;transform:translateX(-102%);transition:transform .2s}.side.open{transform:none}
+  .side .ng h5{display:block;margin:0 10px 6px}.side .ni{justify-content:flex-start;padding:10px}.side .ni span,.side .ni em{display:inline}.ng{margin-bottom:14px;padding-bottom:0;border:0}
+  .menu-btn{display:grid;place-items:center}#view{padding:64px 18px 60px}
+  .gres{left:12px;right:12px;width:auto;top:150px}
+  .brand .bn small{display:block}
+}
+@media(max-width:760px){#view{padding:64px 14px 86px}}
