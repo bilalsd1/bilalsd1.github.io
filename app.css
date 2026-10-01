@@ -259,3 +259,15 @@ tr.xrow>td{padding:0;background:var(--accent-soft);border-bottom:1px solid var(-
   .brand .bn small{display:block}
 }
 @media(max-width:760px){#view{padding:64px 14px 86px}}
+
+/* ---- wide layout: slim sidebar (navigation only), mode switch beside the picture ---- */
+:root{--side:228px}
+#nav{padding-top:18px}
+#view{padding-left:30px;padding-right:30px}
+.bottomnav{grid-template-columns:repeat(4,1fr)}
+.ident .modes{display:inline-flex;align-items:center;flex-wrap:wrap;border:0;gap:0;margin:2px 0 16px}
+.ident .modes .mlbl{font:600 10.5px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-right:12px}
+.ident .modes button{border:1px solid var(--line2);padding:8px 14px;font-size:12px;border-radius:0;margin-right:-1px}
+.ident .modes button[aria-pressed="true"]{border-color:var(--accent);position:relative;z-index:1}
+@media(max-width:1000px){#view{padding:64px 18px 60px}}
+@media(max-width:760px){.ident .modes{display:flex}.ident .modes .mlbl{flex:1 0 100%;margin:0 0 6px}#view{padding:64px 14px 86px}}

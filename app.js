@@ -68,11 +68,11 @@
   function renderNav() {
     const now = cur();
     $('#nav').innerHTML = ORDER[mode].map(k => { const g = NAV[k]; return `<div class="ng"><h5>${g.t}</h5>${g.items.map(([r, l, i]) => `<a class="ni" href="#${r}" ${now === r || (now.split('?')[0] === r.split('?')[0] && !r.includes('?') && r !== '/technology') ? 'aria-current="page"' : ''}>${ic(i)}<span>${esc(l)}</span></a>`).join('')}</div>`; }).join('');
-    $('#modes').innerHTML = Object.keys(MODES).map(k => `<button data-mode="${k}" aria-pressed="${k === mode}" title="${esc(MODES[k].blurb)}">${esc(MODES[k].label)}</button>`).join('');
     const b = [['/dashboard', 'Home', 'dashboard'], ['/experience', 'Career', 'briefcase'], ['/projects', 'Projects', 'folder']];
-    $('#bottomnav').innerHTML = b.map(([r, l, i]) => `<a href="#${r}" ${now.split('?')[0] === r ? 'aria-current="page"' : ''}>${ic(i)}${l}</a>`).join('') + `<button data-act="focus-search">${ic('search')}Search</button><button data-act="menu">${ic('menu')}Menu</button>`;
+    $('#bottomnav').innerHTML = b.map(([r, l, i]) => `<a href="#${r}" ${now.split('?')[0] === r ? 'aria-current="page"' : ''}>${ic(i)}${l}</a>`).join('') + `<button data-act="menu">${ic('menu')}Menu</button>`;
   }
 
+  const modeSwitch = () => `<div class="modes" role="group" aria-label="Career view"><span class="mlbl">Career view</span>${Object.keys(MODES).map(k => `<button data-mode="${k}" aria-pressed="${k === mode}" title="${esc(MODES[k].blurb)}">${esc(MODES[k].label)}</button>`).join('')}</div>`;
   /* ---------- shared view pieces ---------- */
   const head = (title, intro, crumb, actions) => `<div class="phead"><div>${crumb ? `<p class="crumb"><a href="#/dashboard">Dashboard</a> / ${crumb}</p>` : ''}<h1>${esc(title)}</h1>${intro ? `<p>${intro}</p>` : ''}</div>${actions ? `<div>${actions}</div>` : ''}</div>`;
   const pn = (title, body, link, flush) => `<section class="pn"><div class="ph"><h2>${esc(title)}</h2>${link || ''}</div><div class="pb ${flush ? 'flush' : ''}">${body}</div></section>`;
@@ -99,7 +99,7 @@
     const recent = CERT.filter(c => c.date).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
     return { title: 'Dashboard', html: `
     <div class="pn mb"><div class="pb ident"><img src="photo.jpg" alt="Portrait of Syed Bilal Ali" width="300" height="400" fetchpriority="high"><div>
-      <p class="lbl">Professional profile</p><h1>SYED BILAL ALI</h1><p class="ttl">Multidisciplinary Engineering &amp; Technology Professional</p><p class="sub">${esc(m.sub)}</p>
+      <p class="lbl">Professional profile</p><h1>SYED BILAL ALI</h1><p class="ttl">Multidisciplinary Engineering &amp; Technology Professional</p>${modeSwitch()}
       <p>${esc(P.summary)}</p><div class="acts"><a class="btn primary" href="#/experience">View experience</a><a class="btn" href="#/projects">View projects</a><a class="btn" href="#/certifications">View certifications</a><a class="btn" href="#/cv">Open CV workspace</a></div></div></div></div>
     <div class="grid g5 mb">
       <div class="kpi"><b>14+</b><span>Years of experience*</span></div><div class="kpi"><b>48</b><span>Enterprise IT projects*</span></div>
@@ -526,47 +526,6 @@
   }
   function vNotFound() { return { title: 'Not found', html: head('Page not found', 'That record does not exist.') + '<a class="btn" href="#/dashboard">Back to dashboard</a>' }; }
 
-  /* ---------- global search ---------- */
-  const IDX = [];
-  EXP.forEach(x => IDX.push({ g: 'Experience', t: x.role + ' — ' + x.company, s: period(x), r: '/experience?open=' + x.id, x: roleText(x) }));
-  PROJ.forEach(p => IDX.push({ g: 'Projects', t: p.title, s: p.category + (p.period ? ' · ' + p.period : ''), r: '/projects/' + p.id, x: projText(p) + ' ' + p.category }));
-  TECH.forEach(t => IDX.push({ g: 'Technologies', t: t.n, s: t.cat + ' · ' + (LVL[t.lvl]), r: '/technology/' + t.id, x: t.m.join(' ') + ' ' + t.cap.join(' ') + ' ' + t.ev }));
-  Object.entries(W.SKILLS).forEach(([g, a]) => a.forEach(s => IDX.push({ g: 'Skills', t: s, s: g, r: '/expertise', x: g })));
-  CERT.forEach(c => IDX.push({ g: 'Certifications', t: c.name, s: c.issuer + (c.date ? ' · ' + ym(c.date) : ''), r: '/certifications?q=' + encodeURIComponent(c.name), x: [c.course, c.category, c.type, c.number].join(' ') }));
-  W.EDUCATION.forEach(e => IDX.push({ g: 'Education', t: e.degree, s: e.inst + ' · ' + e.years, r: '/education', x: e.inst }));
-  docList().forEach(d => IDX.push({ g: 'Documents', t: d.name, s: d.cat + ' · ' + d.kind, r: '/documents?q=' + encodeURIComponent(d.name), x: d.who }));
-  [['Dashboard', '/dashboard'], ['Profile', '/profile'], ['HVAC and refrigeration', '/hvac'], ['Automation and PLC', '/automation'], ['Advanced IT view', '/it'], ['CV workspace', '/cv'], ['Contact', '/contact']].forEach(([t, r]) => IDX.push({ g: 'Pages', t, s: 'Open page', r, x: '' }));
-  IDX.forEach(i => { i.lt = i.t.toLowerCase(); i.lx = (i.t + ' ' + i.s + ' ' + i.x).toLowerCase(); });
-  const GORDER = ['Experience', 'Projects', 'Technologies', 'Skills', 'Certifications', 'Education', 'Documents', 'Pages'];
-  function search(q) {
-    const toks = q.toLowerCase().split(/\s+/).filter(Boolean); if (!toks.length) return [];
-    return IDX.map(i => { if (!toks.every(t => i.lx.includes(t))) return null; const sc = toks.reduce((a, t) => a + (i.lt.startsWith(t) ? 4 : i.lt.includes(t) ? 3 : 1), 0); return { i, sc }; }).filter(Boolean).sort((a, b) => b.sc - a.sc).map(o => o.i);
-  }
-  const groupRes = list => GORDER.map(g => [g, list.filter(i => i.g === g)]).filter(([, l]) => l.length);
-  function vSearch(q) {
-    const s = q.get('q') || '', res = groupRes(search(s));
-    return { title: 'Search', html: head('Search results', `${res.reduce((a, [, l]) => a + l.length, 0)} results for <b>${esc(s)}</b> across experience, projects, technologies, skills, certifications, education and documents.`, 'Search') +
-      (res.map(([g, l]) => pn(g + ' (' + l.length + ')', `<div class="dlist">${l.slice(0, 30).map(i => `<a href="#${i.r}">${esc(i.t)}<span>${esc(i.s)}</span></a>`).join('')}</div>`)).join('<div class="u-h14"></div>') || '<p class="mut">No results. Try a technology, employer or certificate name.</p>') };
-  }
-  const gq = $('#gq'), gres = $('#gres'); let gsel = -1;
-  function showRes() {
-    const q = gq.value.trim(); if (!q) { gres.hidden = true; gq.setAttribute('aria-expanded', 'false'); return; }
-    const res = groupRes(search(q)); gsel = -1;
-    gres.innerHTML = res.length ? res.map(([g, l]) => `<h4>${g} · ${l.length}</h4>${l.slice(0, 4).map(i => `<a href="#${i.r}" role="option"><b>${esc(i.t)}</b><span>${esc(i.s)}</span></a>`).join('')}`).join('') + `<a href="#/search?q=${encodeURIComponent(q)}"><b>See all results for “${esc(q)}” →</b></a>` : '<div class="none">No results. Try a technology, employer or certificate name.</div>';
-    gres.hidden = false; gq.setAttribute('aria-expanded', 'true');
-  }
-  gq.addEventListener('input', showRes); gq.addEventListener('focus', showRes);
-  gq.addEventListener('keydown', e => {
-    const items = $$('a', gres);
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!items.length) return; gsel = (gsel + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length; items.forEach((a, i) => a.classList.toggle('on', i === gsel)); items[gsel].scrollIntoView({ block: 'nearest' }); }
-    else if (e.key === 'Enter') { e.preventDefault(); if (gsel >= 0 && items[gsel]) items[gsel].click(); else if (gq.value.trim()) { location.hash = '#/search?q=' + encodeURIComponent(gq.value.trim()); closeRes(); } }
-    else if (e.key === 'Escape') closeRes();
-  });
-  const closeRes = () => { gres.hidden = true; gq.setAttribute('aria-expanded', 'false'); };
-  gres.addEventListener('click', () => { closeRes(); gq.blur(); gq.value = ''; });
-  document.addEventListener('click', e => { if (!e.target.closest('.search')) closeRes(); });
-  document.addEventListener('keydown', e => { if ((e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) || (e.key === 'k' && (e.ctrlKey || e.metaKey))) { e.preventDefault(); gq.focus(); gq.select(); } });
-
   /* ---------- router ---------- */
   function route() {
     const raw = location.hash.replace(/^#/, '') || '/dashboard', [path, qs] = raw.split('?'), q = new URLSearchParams(qs || ''), seg = path.split('/').filter(Boolean);
@@ -576,7 +535,7 @@
       case 'projects': v = seg[1] ? vProject(seg[1]) : vProjects(q); break; case 'expertise': v = vExpertise(q); break;
       case 'hvac': v = vHvac(); break; case 'automation': v = vAutomation(); break; case 'it': v = vIt(); break;
       case 'technology': v = vTechnology(seg[1], q); break; case 'certifications': v = vCerts(q); break; case 'education': v = vEducation(); break;
-      case 'documents': v = vDocuments(q); break; case 'cv': v = vCv(q); break; case 'contact': v = vContact(); break; case 'search': v = vSearch(q); break;
+      case 'documents': v = vDocuments(q); break; case 'cv': v = vCv(q); break; case 'contact': v = vContact(); break;
       default: v = vNotFound();
     }
     const view = $('#view'); view.innerHTML = `<div class="fade">${v.html}</div>`; document.title = v.title + ' | Syed Bilal Ali';
@@ -602,7 +561,6 @@
       if (act === 'toggle') { const b = a.nextElementSibling, o = b.hidden; b.hidden = !o; a.setAttribute('aria-expanded', o); }
       else if (act === 'expand' || act === 'collapse') $$('.rh').forEach(h => { h.nextElementSibling.hidden = act === 'collapse'; h.setAttribute('aria-expanded', act === 'expand'); });
       else if (act === 'print') window.print();
-      else if (act === 'focus-search') { gq.focus(); }
       else if (act === 'menu') openDrawer();
       return;
     }
