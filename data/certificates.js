@@ -17,7 +17,8 @@ window.CERTIFICATES = [
    "verification URL (QR code on certificate)",
    "certificate number"
   ],
-  "id": "c01"
+  "id": "c01",
+  "type": "Course completion"
  },
  {
   "name": "Siemens PLC Basics: Introduction to Programming & Configuration",
@@ -35,7 +36,8 @@ window.CERTIFICATES = [
   "missing": [
    "verification URL"
   ],
-  "id": "c02"
+  "id": "c02",
+  "type": "Course completion"
  },
  {
   "name": "PLC Programming MADE EASY: Learn How to Program PLCs Step-by-Step (Level 1)",
@@ -53,7 +55,8 @@ window.CERTIFICATES = [
   "missing": [
    "verification URL"
   ],
-  "id": "c03"
+  "id": "c03",
+  "type": "Course completion"
  },
  {
   "name": "Danfoss Turbocor® TT&TG Compressor Training Assessment",
@@ -72,7 +75,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c04"
+  "id": "c04",
+  "type": "Course completion"
  },
  {
   "name": "Danfoss Turbocor® TT&TG Compressor Training Program",
@@ -91,7 +95,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c05"
+  "id": "c05",
+  "type": "Course completion"
  },
  {
   "name": "Basic Compressors (US units)",
@@ -110,7 +115,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c06"
+  "id": "c06",
+  "type": "Course completion"
  },
  {
   "name": "About Danfoss Turbocor",
@@ -129,7 +135,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c07"
+  "id": "c07",
+  "type": "Course completion"
  },
  {
   "name": "Tools You Can Use 1 – Danfoss Turbocor Compressors Website",
@@ -148,7 +155,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c08"
+  "id": "c08",
+  "type": "Course completion"
  },
  {
   "name": "Safety – Turbocor Compressor",
@@ -167,7 +175,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c09"
+  "id": "c09",
+  "type": "Course completion"
  },
  {
   "name": "Tools You Can Use 2 – Service Monitoring Tool (SMT)",
@@ -186,7 +195,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c10"
+  "id": "c10",
+  "type": "Course completion"
  },
  {
   "name": "Tools You Can Use 3 – TurboTool®",
@@ -205,7 +215,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c11"
+  "id": "c11",
+  "type": "Course completion"
  },
  {
   "name": "Product Capacity and Operating Range",
@@ -224,7 +235,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c12"
+  "id": "c12",
+  "type": "Course completion"
  },
  {
   "name": "Compressor Cooling",
@@ -243,7 +255,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c13"
+  "id": "c13",
+  "type": "Course completion"
  },
  {
   "name": "Compressor Interface",
@@ -262,7 +275,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c14"
+  "id": "c14",
+  "type": "Course completion"
  },
  {
   "name": "Centrifugal Compression Principles",
@@ -281,7 +295,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c15"
+  "id": "c15",
+  "type": "Course completion"
  },
  {
   "name": "Compressor Operation 1",
@@ -300,7 +315,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c16"
+  "id": "c16",
+  "type": "Course completion"
  },
  {
   "name": "Compressor Operation 2",
@@ -319,7 +335,8 @@ window.CERTIFICATES = [
    "certificate number (not printed)",
    "expiry (not printed)"
   ],
-  "id": "c17"
+  "id": "c17",
+  "type": "Course completion"
  },
  {
   "name": "CCNA Routing & Switching",
@@ -339,7 +356,8 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c18"
+  "id": "c18",
+  "type": "Expired certification"
  },
  {
   "name": "MCSA Windows Server 2016 (70-740, 70-741, 70-742)",
@@ -359,7 +377,8 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c19"
+  "id": "c19",
+  "type": "Learning path"
  },
  {
   "name": "AWS Certified Solutions Architect – Associate",
@@ -379,7 +398,8 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c20"
+  "id": "c20",
+  "type": "Course and professional experience"
  },
  {
   "name": "Cloud Developer",
@@ -399,15 +419,16 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c21"
+  "id": "c21",
+  "type": "Learning path"
  },
  {
   "name": "Project Management Professional (PMP) + PMI member",
-  "issuer": "PMI",
+  "issuer": "Lynda.com (PMP exam preparation course) · PMI member",
   "number": "",
-  "date": "",
+  "date": "2018-01",
   "expiry": "",
-  "course": "",
+  "course": "PMP Exam Preparation, 36 hours, Jan 2018 (per PMI application). Exam not taken.",
   "category": "Management",
   "status": "Course completed; exam not taken (per CV)",
   "verify": "",
@@ -419,7 +440,8 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c22"
+  "id": "c22",
+  "type": "Course and professional experience"
  },
  {
   "name": "PMI-ACP",
@@ -439,7 +461,8 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c23"
+  "id": "c23",
+  "type": "Learning path"
  },
  {
   "name": "Six Sigma Black Belt",
@@ -459,7 +482,8 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c24"
+  "id": "c24",
+  "type": "Learning path"
  },
  {
   "name": "Critical Thinking, Decision-Making and Problem-Solving",
@@ -479,6 +503,7 @@ window.CERTIFICATES = [
    "date",
    "certificate number"
   ],
-  "id": "c25"
+  "id": "c25",
+  "type": "Learning path"
  }
 ];

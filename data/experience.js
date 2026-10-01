@@ -1,72 +1,77 @@
-/* EXPERIENCE: from the CV only. Each point has tags used by the CV variants:
-   it = IT/infrastructure · dev = software · auto = device/automation integration
-   eng = electrical/hardware/power · mgmt = management/business */
+/* CAREER — single source for the Experience page and every CV version.
+   Every line is taken from the CV; wording is condensed, nothing is added.
+   tags (CV variants): it = IT/infrastructure · dev = software · auto = device/automation integration · eng = electrical/hardware/power · mgmt = management */
 (function () {
-  var p = function (t, tags) { return { t: t, tags: tags.split(",") }; };
+  var r = function (l, t, tags) { return { l: l, t: t, tags: tags.split(",") }; };
   window.EXPERIENCE = [
     {
-      when: "06.2021 — Present", role: "IT Head", company: "The Big Buy Super Market", place: "Karachi, Pakistan (CV: location not stated)",
-      tech: ["Oracle ERP", "Oracle 10g", "PL/SQL", "MySQL 8.0", "WooCommerce API", "IKEv2 IPsec", "Active Directory", "C#", "ASP.NET", "Windows CE 6.5", "Zebra MK3100", "ZKTeco", "DIGI SM100", "UPS / APC"],
-      achievements: ["Saved over 70K PKR per month by removing unnecessary ISP connections", "Delivered 7 hours of server backup on a 6 kVA line-interactive UPS"],
-      projects: ["oracle-woo", "ikev2-network", "handheld-apps", "turnstile-hr", "digi-scale", "power-isp"],
-      points: [
-        p("Deployed and inaugurated IT infrastructure for the 2nd, 3rd and 4th branches: POS system, networking, Active Directory server, firewall, Oracle ERP, inventory, supply chain, purchasing & receiving goods, accounts, human resources and an integrated e-commerce website.", "it"),
-        p("Connected the Oracle 10g database with MySQL 8.0 using the WooCommerce API for automatic price and stock updates.", "it,dev,auto"),
-        p("Deployed IKEv2 IPsec network connections between all branches.", "it"),
-        p("Upgraded servers and network topology, adding a redundancy cluster for the first branch.", "it"),
-        p("Removed unnecessary ISP connections, saving over 70K PKR monthly.", "it,mgmt"),
-        p("Developed C# and ASP.NET Windows and web applications for Windows CE mobile devices and handheld barcode readers (HHT).", "dev,auto"),
-        p("Developed a price-checker application in C# on Windows CE 6.5 (Zebra MK3100) with Oracle 10g.", "dev,auto"),
-        p("Wrote Oracle PL/SQL queries and modified Oracle forms and reports as required.", "dev,it"),
-        p("Installed line-interactive pure sine wave UPS for the 6 kVA server load, giving 7 hours of backup on tubular batteries; replaced online APC SURT6KW units with long-backup line-interactive systems for every computer and IoT device.", "eng,it"),
-        p("Implemented HR module policies for check-in/check-out and rosters; installed ZKT turnstile gates to monitor employee break time, integrated with Oracle ERP, with automatic attendance data pulling.", "auto,eng,it"),
-        p("Connected DIGI SM100 scales to the Oracle database for automatic daily price changes.", "auto,it"),
-        p("Team leader for IT-related products such as thermal rolls, barcode printing and shelf tags.", "mgmt"),
-        p("Ran the head office as the master network branch, serving data to remote sales at the PAF Sasta Bazar exhibition.", "it")
-      ]
+      id: "bigbuy", start: "2021-06", end: "", role: "IT Head", company: "The Big Buy Super Market", place: "",
+      focus: "Leads IT for a multi-branch supermarket: infrastructure, Oracle ERP, e-commerce integration and in-store devices.",
+      responsibilities: [
+        r("Infrastructure rollout", "Deployed POS, networking, Active Directory, firewall and Oracle ERP modules (inventory, supply chain, purchasing, accounts, HR) for the 2nd, 3rd and 4th branches.", "it"),
+        r("Secure networking", "Connected all branches with IKEv2 IPsec, upgraded servers and added a redundancy cluster at the first branch.", "it"),
+        r("Database integration", "Connected Oracle 10g to MySQL 8.0 through the WooCommerce API for automatic price and stock updates.", "it,dev,auto"),
+        r("Application development", "Built C# and ASP.NET applications for Windows CE handheld barcode readers, including a price checker on Zebra MK3100 devices.", "dev,auto"),
+        r("ERP customisation", "Modified Oracle PL/SQL queries, forms and reports to business requirements.", "dev,it"),
+        r("Device integration", "Integrated ZKT turnstiles (attendance and break time) and DIGI SM100 scales with Oracle ERP.", "auto,eng,it"),
+        r("Power systems", "Installed 6 kVA line-interactive UPS and replaced online APC SURT6KW units with long-backup line-interactive systems.", "eng,it"),
+        r("Team leadership", "Team leader for IT-related products such as thermal rolls, barcode printing and shelf tags.", "mgmt")
+      ],
+      contributions: [
+        "Saved over **70K PKR per month** by removing unnecessary ISP connections.",
+        "Delivered **7 hours of server backup** on the 6 kVA UPS system.",
+        "Automated daily price changes (DIGI scales) and e-commerce price and stock updates.",
+        "Ran the head office as master network branch, serving data to remote sales at the PAF Sasta Bazar exhibition."
+      ],
+      tech: ["Oracle ERP", "Oracle 10g", "PL/SQL", "MySQL 8.0", "WooCommerce API", "IKEv2 IPsec", "Active Directory", "C#", "ASP.NET", "Windows CE 6.5", "Zebra MK3100", "ZKTeco", "DIGI SM100"],
+      projects: ["oracle-woo", "branch-network", "handheld-apps", "turnstile-hr", "digi-scale", "power-isp"]
     },
     {
-      when: "04.2018 — 06.2021 (3 yrs 8 mos)", role: "Full Stack Developer / Cloud Solutions / Project Manager", company: "iNetworkSolution (sole proprietorship)", place: "",
-      tech: ["Microsoft", "Cisco", "MikroTik", "AWS"], achievements: [], projects: [],
-      points: [
-        p("Set business strategy, led the business and allocated capital to priorities.", "mgmt"),
-        p("Built and maintained long-term client relationships; provided remote services and training to clients.", "mgmt,it"),
-        p("Worked with Microsoft Gold Partner, Cisco Gold Partner, MikroTik and AWS partner programs.", "it"),
-        p("Designed paid promotional content to generate leads for products and services.", "mgmt"),
-        p("Took on client challenges and delivered to project deadlines; kept Fiverr, Upwork, LinkedIn and Facebook accounts active.", "mgmt")
-      ]
+      id: "inetwork", start: "2018-04", end: "2021-06", role: "Full Stack Developer, Cloud Solutions and Project Manager", company: "iNetworkSolution (sole proprietorship)", place: "",
+      focus: "Ran an independent IT consultancy delivering remote services, training and technology solutions to clients.",
+      responsibilities: [
+        r("Client delivery", "Provided remote services and training and maintained long-term client relationships.", "mgmt,it"),
+        r("Partner ecosystem", "Worked with Microsoft Gold, Cisco Gold, MikroTik and AWS partner programs.", "it"),
+        r("Business management", "Set business objectives and strategy and allocated capital to priorities.", "mgmt"),
+        r("Lead generation", "Produced promotional content and maintained Fiverr, Upwork and LinkedIn profiles.", "mgmt")
+      ],
+      contributions: ["Delivered client projects to agreed deadlines."],
+      tech: ["Microsoft", "Cisco", "MikroTik", "AWS"], projects: []
     },
     {
-      when: "10.2012 — 04.2018 (6 yrs 7 mos)", role: "IT Manager", company: "Al Aqmar IT Solution and Services", place: "Buraidah, Saudi Arabia",
-      tech: ["ERP", "IPTV middleware", "IP telephony", "Cisco", "Firewalls", "Android", "Linux"],
-      achievements: ["Increased company sales by 30%", "Initiated and managed 45 successful IT infrastructure projects across Saudi Arabia (hotels, hospitals, manufacturing, education, energy, telecom)"],
-      projects: ["hospitality-it"],
-      points: [
-        p("Increased company sales by 30% through strong customer relationships.", "mgmt"),
-        p("Initiated and managed 45 successful IT infrastructure projects across Saudi Arabia for hotels, hospitals, manufacturing, education, energy and telecommunications.", "it,mgmt"),
-        p("Deployed ERP (accounts, HR, manufacturing, inventory and warehousing); developed websites connected to ERP databases.", "it,dev"),
-        p("Developed native and cross-platform apps; integrated front-desk systems with booking channel managers via APIs.", "dev"),
-        p("Deployed IT infrastructure: cabling, servers, routers, switches and firewalls; secured and updated software and firewalls to prevent intrusions.", "it,eng"),
-        p("Deployed IP telephony (Panasonic, Siemens, Alcatel-Lucent, Avaya Oceano, Cisco) and installed IPTV middleware, infrastructure, Linux and Android applications.", "it,auto"),
-        p("Kept stakeholders updated on progress, resources and budget; collected lessons learned for faster future delivery; sold and marketed company products and services.", "mgmt")
-      ]
+      id: "aqmar", start: "2012-10", end: "2018-04", role: "IT Manager", company: "Al Aqmar IT Solution and Services", place: "Buraidah, Saudi Arabia",
+      focus: "Managed delivery of IT infrastructure projects for hotels, hospitals, manufacturers and other clients across Saudi Arabia.",
+      responsibilities: [
+        r("Project delivery", "Initiated and managed 45 IT infrastructure projects across hospitality, healthcare, manufacturing, education, energy and telecom.", "it,mgmt"),
+        r("Infrastructure", "Deployed cabling, servers, routers, switches and firewalls, and kept software and firewalls updated to prevent intrusion.", "it,eng"),
+        r("Enterprise systems", "Deployed ERP (accounts, HR, manufacturing, inventory, warehousing) and websites connected to ERP databases.", "it,dev"),
+        r("Integration", "Integrated hotel front-desk systems with booking channel managers through APIs.", "dev"),
+        r("Telephony and IPTV", "Deployed Panasonic, Siemens, Alcatel-Lucent, Avaya and Cisco IP telephony, and installed IPTV middleware, infrastructure, Linux and Android applications.", "it,auto"),
+        r("Application development", "Developed native and cross-platform applications.", "dev"),
+        r("Stakeholder reporting", "Reported progress, resources and budget to stakeholders and recorded lessons learned for faster delivery.", "mgmt")
+      ],
+      contributions: ["Completed **45 IT infrastructure projects** across Saudi Arabia.", "Increased company sales by **30%**."],
+      tech: ["ERP", "Cisco", "Firewalls", "IP telephony", "IPTV middleware", "Android", "Linux"], projects: ["saudi-infrastructure"]
     },
     {
-      when: "03.2011 — 09.2012", role: "IT Technician", company: "Dar Al Zeer IT Solution", place: "Buraidah, Saudi Arabia",
-      tech: [], achievements: [], projects: [],
-      points: [
-        p("Installed and configured hardware and software; troubleshot and repaired hardware and software issues.", "it,eng"),
-        p("Upgraded systems for software compatibility; installed and upgraded antivirus; tested new software and hardware.", "it"),
-        p("Ran daily backups, ensured electrical safety standards and maintained technical documentation.", "it,eng")
-      ]
+      id: "daralzeer", start: "2011-03", end: "2012-09", role: "IT Technician", company: "Dar Al Zeer IT Solution", place: "Buraidah, Saudi Arabia",
+      focus: "First-line hardware, software and backup support for client systems.",
+      responsibilities: [
+        r("Installation and support", "Installed and configured hardware and software; diagnosed and repaired hardware and software faults.", "it,eng"),
+        r("System maintenance", "Upgraded systems, installed antivirus and tested new software and hardware.", "it"),
+        r("Operations", "Ran daily backups, applied electrical safety standards and maintained technical documentation.", "it,eng")
+      ],
+      contributions: [], tech: [], projects: []
     },
     {
-      when: "08.2010 — 02.2011", role: "IT Technician", company: "Al Mada IT Solution and Services", place: "Jeddah, Saudi Arabia",
-      tech: [], achievements: [], projects: [],
-      points: [
-        p("Installed servers, routers, access points and computers; hardware repair including SMD and capacitor replacement by soldering.", "it,eng"),
-        p("Promoted and sold products and services, built customer relationships and generated leads through cold calling; coordinated sales efforts with the team.", "mgmt")
-      ]
+      id: "almada", start: "2010-08", end: "2011-02", role: "IT Technician", company: "Al Mada IT Solution and Services", place: "Jeddah, Saudi Arabia",
+      focus: "Installed IT equipment for clients and supported sales.",
+      responsibilities: [
+        r("Installation", "Installed servers, routers, access points and computers.", "it,eng"),
+        r("Hardware repair", "Repaired hardware, including SMD and capacitor replacement by soldering.", "eng"),
+        r("Customer relations", "Promoted products and services, generated leads and coordinated with the sales team.", "mgmt")
+      ],
+      contributions: [], tech: [], projects: []
     }
   ];
 

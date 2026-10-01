@@ -17,40 +17,28 @@ window.PROFILE = {
   email: "Bilalsd1@live.com",           // public contact = email + form only (no phone / address / DOB)
   languages: ["English", "Urdu"],
   yearsExperience: 14,                  // CV: "14 years of experience"
-  enterpriseProjects: 48,               // CV: "Completed 48 enterprise IT projects"
-  summary: "Technology solutions professional with 14 years of experience delivering enterprise IT infrastructure, ERP and database integration, and device-level systems integration. Recent professional training extends this into industrial automation (PLC) and Danfoss Turbocor compressor technology.",
+  enterpriseProjects: 48,               // CV: "Completed 48 enterprise IT projects" (career claim, NOT the number of project records)
+  saudiProjects: 45,                    // CV: "45 successful IT infrastructure projects all over Saudi Arabia" (career claim)               // CV: "Completed 48 enterprise IT projects"
+  summary: "Multidisciplinary engineering and technology professional with 14 years of experience across IT infrastructure, enterprise systems, databases and systems integration, extending into industrial automation and HVAC compressor technology.",
   variants: {
     full: {
-      label: "Full CV",
-      headline: "Engineering & Technology Solutions",
-      summary: "Technology solutions professional with 14 years of experience delivering enterprise IT infrastructure, ERP and database integration, and device-level systems integration. Recent professional training extends this into industrial automation (PLC) and Danfoss Turbocor compressor technology.",
-      bullets: ["it", "dev", "auto", "eng", "mgmt"],
-      certCats: null, skills: null
+      label: "Full professional CV", headline: "Multidisciplinary Engineering & Technology Professional",
+      summary: "Multidisciplinary engineering and technology professional with 14 years of experience across IT infrastructure, enterprise systems, databases and systems integration, extending into industrial automation and HVAC compressor technology.",
+      bullets: ["it", "dev", "auto", "eng", "mgmt"], certCats: null, skills: null
+    },
+    hvac: {
+      label: "HVAC / Engineering CV", headline: "Engineering, Automation and Compressor Technology",
+      summary: "Technologist with PLC programming training (Siemens) and a completed Danfoss Turbocor TT & TG compressor training program, plus field experience integrating turnstiles, scales and handheld terminals with enterprise databases, and building power-backup systems for servers and endpoints.",
+      bullets: ["eng", "auto"], certCats: ["PLC", "Automation", "HVAC", "Refrigeration", "Safety", "Electrical", "Mechanical"], skills: ["Infrastructure"]
     },
     it: {
-      label: "IT-focused CV",
-      headline: "IT Infrastructure, Enterprise Systems & Integration",
-      summary: "IT Head with 14 years of experience across networking, servers, Active Directory, Oracle/MySQL databases, APIs and enterprise systems (ERP, POS, e-commerce) for retail, hospitality and multi-industry clients.",
-      bullets: ["it", "dev", "mgmt"],
-      certCats: ["IT", "Networking", "Database", "Programming", "Management"], skills: ["DevOps & Cloud", "Development", "Data & ERP", "Infrastructure", "Management & Creative"]
-    },
-    eng: {
-      label: "Engineering-focused CV",
-      headline: "Systems Integration & Engineering Support",
-      summary: "Hands-on technologist who integrates physical devices, power systems and control equipment with enterprise software, backed by formal training in PLC programming and compressor technology.",
-      bullets: ["eng", "auto"],
-      certCats: ["PLC", "Automation", "HVAC", "Refrigeration", "Safety", "Electrical", "Mechanical"], skills: ["Infrastructure"]
-    },
-    auto: {
-      label: "Automation / HVAC CV",
-      headline: "Automation, PLC & Compressor Technology",
-      summary: "Technologist with PLC programming training (Siemens) and a completed Danfoss Turbocor TT & TG compressor training program, plus field experience integrating turnstiles, scales and handheld terminals with enterprise databases.",
-      bullets: ["auto"],
-      certCats: ["PLC", "Automation", "HVAC", "Refrigeration", "Safety"], skills: []
+      label: "Advanced IT CV", headline: "IT Infrastructure, Enterprise Systems and Integration",
+      summary: "IT Head with 14 years of experience across networking, servers, Active Directory, Oracle and MySQL databases, APIs and enterprise systems (ERP, POS, e-commerce) for retail, hospitality and multi-industry clients.",
+      bullets: ["it", "dev", "mgmt"], certCats: ["IT", "Networking", "Database", "Programming", "Management"], skills: ["DevOps & Cloud", "Development", "Data & ERP", "Infrastructure", "Management & Creative"]
     }
   },
   /* Hero badges: only areas with evidence */
-  positioning: ["IT Infrastructure", "Networking", "Databases", "Systems Integration", "Industrial Automation (PLC)", "HVAC & Refrigeration (Danfoss Turbocor)", "Enterprise Systems"]
+  positioning: ["Information Technology", "Systems Integration", "Industrial Automation", "HVAC & Refrigeration"]
 };
 
 window.EDUCATION = [
@@ -60,6 +48,7 @@ window.EDUCATION = [
   { degree: "Secondary Education / Matriculation, Computer Science", inst: "Federal Board of Intermediate and Secondary Education, Islamabad (Pakistani International School Jeddah)", place: "Jeddah, Saudi Arabia", years: "2012 – 2013", status: "Completed", source: "CV" }
 ];
 window.TRAINING = [
+  { name: "PMP Exam Preparation (36 hours)", org: "Lynda.com", when: "Jan 2018", source: "PMI application" },
   { name: "Windows Networking", org: "NET. INN Computer Network, Karachi", when: "Jan 2009 – Apr 2009", source: "CV" },
   { name: "Computer Hardware & Software", org: "Institute of Development Council, Government of Pakistan · 3D Educators, Karachi", when: "Jul 2011 – Sep 2011", source: "CV" }
 ];
