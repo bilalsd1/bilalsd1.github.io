@@ -69,8 +69,8 @@ window.IT_DOMAINS = [
   { k: "Security and Surveillance", ids: ["cctv", "access"] },
   { k: "Telephony and Media", ids: ["pbx", "catv", "iptv", "voip"] }
 ];
-/* Whole-word matchers, compiled once */
+/* Whole-word matchers, compiled once (no lookbehind: works in older browsers too) */
 (function () {
   var esc = function (s) { return s.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&'); };
-  window.TECH_DB.forEach(function (t) { t.re = new RegExp('(?<![A-Za-z0-9])(?:' + t.m.map(esc).join('|') + ')(?![A-Za-z0-9])', 'i'); });
+  window.TECH_DB.forEach(function (t) { t.re = new RegExp('(?:^|[^A-Za-z0-9])(?:' + t.m.map(esc).join('|') + ')(?![A-Za-z0-9])', 'i'); });
 })();

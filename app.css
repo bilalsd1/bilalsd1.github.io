@@ -233,3 +233,5 @@ tr.xrow>td{padding:0;background:var(--accent-soft);border-bottom:1px solid var(-
 .ident p.ttl+p.sub+p{font-size:15.5px}
 @media(max-width:1180px){.ident{grid-template-columns:220px minmax(0,1fr);gap:26px}.ident img{width:220px;height:293px}}
 @media(max-width:760px){.ident{grid-template-columns:1fr;justify-items:start;gap:18px}.ident img{width:min(100%,260px);height:auto;aspect-ratio:3/4}.ident h1{font-size:32px}}
+
+.loading{padding:40px 10px;color:var(--muted);font:14px var(--mono)}
